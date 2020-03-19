@@ -8,7 +8,7 @@ function App() {
   // console.log(props.breweryInfo.map(beer => beer.street))
   return (
     <div className="App">
-      <h1>Brewery</h1>
+      <h1>Brewery Finder</h1>
       <Beer />
     </div>
   );

@@ -2,30 +2,50 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchBrewery } from '../actions';
 import LoadingBrewery from '../gif/Loading';
+import { Button, Container, Box } from '@material-ui/core';
+import '../App.css';
 
 
 const Beer = props => {
   return (
-    <div>
+    <Container fixed>
+    <Box 
+     className='beerBox'>
+        <h2>Need A Place To Grab a Beer ?</h2>
+      <Button 
+      variant="contained" 
+      color="secondary" 
+      onClick={props.fetchBrewery}
+      >
+      Get Beer!
+      </Button>
       <h2>Grab A Beer!</h2>
-      <button onClick={props.fetchBrewery}>Get Beer!</button>
-      {!props.breweryInfo && !props.isLoading && (
-        <h2>Go ahead and fetch a new beer !</h2>
-      )}
+      </Box>
       {props.isLoading && (
         <LoadingBrewery />
       )}
+        <div className='breweryContainer'>
       {props.breweryInfo && !props.isLoading &&
         props.breweryInfo.map(brewery => {
           return (
-            <div key={brewery.id}>
+            <Box
+             key={brewery.id}
+             className='brewery'
+             >
               <h3>{brewery.name}</h3>
-            </div>
+              <h4>Type: {brewery.brewery_type.toUpperCase()}</h4>
+              <p className='address'>
+               Address:{' '}{brewery.street} 
+              <p>{brewery.city}{' , '}{brewery.state}</p> 
+              <p>{brewery.country}</p>
+              </p>
+            </Box>
 
           )
         })
       }
-    </div>
+      </div>
+    </Container>
   )
 }
 
