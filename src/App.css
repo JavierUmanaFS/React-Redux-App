@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin:0;
+}
+
+.beerBox{
+  background-color: rgb(65, 66, 68);
+  height: 20vh;
+  color: white;
+  padding: 4%;
+}
+
+.brewery{
+  background-color: #777;
+  width: 30%;
+  height: 30vh;
+  margin: 20px auto;
+}
+
+.breweryContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.address{
+  display: flex;
+  flex-direction: column;
+}
